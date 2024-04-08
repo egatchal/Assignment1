@@ -1,3 +1,4 @@
+import sys
 from PartA import tokenize, computeWordFrequencies
 
 def intersection(textFilePath1, textFilePath2):
@@ -29,4 +30,13 @@ def intersection(textFilePath1, textFilePath2):
     print(len(intersecting_tokens))
 
 if __name__ == "__main__":
-    intersection("/Users/einargatchalian/Desktop/CS121/test1.txt", "/Users/einargatchalian/Desktop/CS121/test2.txt")
+    '''
+    tFP1: /Users/einargatchalian/Desktop/CS121/test1.txt 
+    tFP2: /Users/einargatchalian/Desktop/CS121/test2.txt
+    '''
+    if len(sys.argv) == 3:
+        textFilePath1 = sys.argv[1]
+        textFilePath2 = sys.argv[2]
+        intersection(textFilePath1, textFilePath2)
+    else:
+        print("Error missing text file path(s).")
