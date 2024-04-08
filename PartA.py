@@ -54,4 +54,6 @@ def computeWordFrequencies(tokens):
 
 if __name__ == "__main__":
     tokens = tokenize("/Users/einargatchalian/Downloads/sheesh.txt")
-    print(tokens)
+    #print(tokens)
+    frequencies = computeWordFrequencies(tokens)
+    print(frequencies)
