@@ -1,4 +1,4 @@
-from PartA import tokenize, computeWordFrequencies, printFrequencies
+from PartA import tokenize, computeWordFrequencies
 
 def intersection(textFilePath1, textFilePath2):
     """print the tokens shared between two text files
