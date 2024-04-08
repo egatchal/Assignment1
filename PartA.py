@@ -13,9 +13,12 @@ def tokenize(textFilePath):
     list
         a list of tokens read from the input file
     """
-
-    with open(textFilePath, "r") as f:
-        text = f.read().lower()
+    
+    try:
+        with open(textFilePath, "r") as f:
+            text = f.read().lower()
+    except FileNotFoundError:
+        return []
     
     tokens = []
     token = ""
