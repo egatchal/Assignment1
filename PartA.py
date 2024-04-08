@@ -52,8 +52,21 @@ def computeWordFrequencies(tokens):
         frequencies[token] += 1
     return frequencies
 
+def printFrequencies(frequencies):
+    """print the frequency of tokens in sorted order
+    
+    Parameters
+    ----------
+    tokens : dict
+        frequency of tokens
+    """
+    frequencies = sorted(frequencies.items(), key=lambda x: (x[1],x[0]), reverse=True) # sort by value then key in descendding order
+    for token, count in frequencies:
+        print(f"{token}\t{count}")
+
 if __name__ == "__main__":
     tokens = tokenize("/Users/einargatchalian/Downloads/sheesh.txt")
     #print(tokens)
     frequencies = computeWordFrequencies(tokens)
-    print(frequencies)
+    #print(frequencies)
+    printFrequencies(frequencies)
