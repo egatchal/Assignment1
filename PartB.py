@@ -1,5 +1,5 @@
 import sys
-from PartA import tokenize, computeWordFrequencies
+from PartA import tokenize
 
 def intersection(textFilePath1, textFilePath2):
     """print the tokens shared between two text files
@@ -12,16 +12,13 @@ def intersection(textFilePath1, textFilePath2):
         path name for text file 2
     """
 
-    tokens1 = tokenize(textFilePath1) # get tokens for first file
-    tokens2 = tokenize(textFilePath2) # get tokens for second file
-    
-    frequencies1 = computeWordFrequencies(tokens1) # get token count for first file
-    frequencies2 = computeWordFrequencies(tokens2) # get token count for second file
+    tokens1 = set(tokenize(textFilePath1)) # get tokens for first file
+    tokens2 = set(tokenize(textFilePath2)) # get tokens for second file
     
     intersecting_tokens = []
     
-    for token in frequencies1:
-        if token in frequencies2: # get the shared tokens
+    for token in tokens1:
+        if token in tokens2: # get the shared tokens
             intersecting_tokens.append(token)
     
     for token in intersecting_tokens:
@@ -31,8 +28,8 @@ def intersection(textFilePath1, textFilePath2):
 
 if __name__ == "__main__":
     '''
-    tFP1: /Users/einargatchalian/Desktop/CS121/test1.txt 
-    tFP2: /Users/einargatchalian/Desktop/CS121/test2.txt
+    tFP1: /Users/einargatchalian/Downloads/alice.txt
+    tFP2: /Users/einargatchalian/Downloads/gatsby.txt
     '''
     if len(sys.argv) == 3:
         textFilePath1 = sys.argv[1]
